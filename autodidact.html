@@ -1,14 +1,34 @@
 <head>
-  <title>autodidact</title>
+  <title>Autodidact</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
+  <div class = "outer">
+    <div class = "logo"></div>
+    <h1 class = "title">autodidact</h1>
+    <div class="subtitle">Today's meh is:</div>
+    {{> meh}}
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name = "meh">
+    <img class = "details" src={{photo}}>
+    <p>{{features}}</p>
 </template>
+
+<template name = "meh_list">
+  <ol class = "leaderboard">
+    {{#each line}}
+      {{> line}}
+    {{/each}}
+  </ol>
+</template>
+
+<template name = "line_item">
+  <li class = "player">
+    <span class = "name">{{name}}</span>
+  </li>
+</template>
+                           
