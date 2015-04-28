@@ -1,3 +1,4 @@
+var meh_data = 0
 if (Meteor.isClient) {
     Template.meh.helpers({
       'photo': function(){
@@ -38,13 +39,14 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-
+    // cache our data 
+         meh_data = Meteor.http.call('GET','https://api.meh.com/1/current.json?apikey=bawDoKqvnBeJ9oBhGr7qnlFSwygB9L1D');
   });
   
-  Meteor.methods({
-      'getMeh':function(){
-          return Meteor.http.call('GET','https://api.meh.com/1/current.json?apikey=bawDoKqvnBeJ9oBhGr7qnlFSwygB9L1D');
-      }
+  Meteor.methods({     
+    'getMeh':function(){
+          return meh_data;
+      },
     })
 }
 Router.route('/', function () {
