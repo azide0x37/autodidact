@@ -11,3 +11,8 @@ http
 jquery
 useraccounts:core
 useraccounts:bootstrap
+accounts-google
+accounts-facebook
+accounts-password
+accounts-twitter
+accounts-github
