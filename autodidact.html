@@ -7,29 +7,14 @@
 <body>
   <div class = "outer">
     <div class = "logo"></div>
-    <h1 class = "title">autodidact</h1>
-    <div class="subtitle">Today's meh is:</div>
     {{> meh}}
-    {{> atForm}}
   </div>
 </body>
 
 <template name = "meh">
+  <div class = "title">Autodidact</div>  
+  <div class="subtitle">I spent <b>${{price}}</b> of your money on my great confidence you'd like this.</div>
+    <h2 class = "message">{{title}}</h2>
     <img height="500" width="500" src={{photo}}>
-    <p>{{features}}</p>
+    {{features}}
 </template>
-
-<template name = "meh_list">
-  <ol class = "leaderboard">
-    {{#each line}}
-      {{> line}}
-    {{/each}}
-  </ol>
-</template>
-
-<template name = "line_item">
-  <li class = "player">
-    <span class = "name">{{name}}</span>
-  </li>
-</template>
-                           

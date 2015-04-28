@@ -3,9 +3,23 @@ if (Meteor.isClient) {
       'photo': function(){
            Meteor.call('getMeh',function(err,results){
            console.log(results.content);
-           Session.set('photo', JSON.parse(results.content).deal.photos[0]);
+           Session.set('photo', JSON.parse(results.content).deal.photos[1]);
        });
     return (Session.get('photo'));
+   },
+      'title': function(){
+           Meteor.call('getMeh',function(err,results){
+           console.log(results.content);
+           Session.set('title', JSON.parse(results.content).deal.title);
+       });
+    return (Session.get('title'));
+   },
+      'price': function(){
+           Meteor.call('getMeh',function(err,results){
+           console.log(results.content);
+           Session.set('price', JSON.parse(results.content).deal.items[0].price);
+       });
+    return (Session.get('price'));
    },
       'features': function(){
         Meteor.call('getMeh', function(err, results){
@@ -15,7 +29,7 @@ if (Meteor.isClient) {
       return (Session.get('features'));
       }
 });
-    
+ 
   Template.meh.events({
 
   });
@@ -33,3 +47,8 @@ if (Meteor.isServer) {
       }
     })
 }
+Router.route('/', function () {
+  this.render('Home', {
+    data: function () { return Items.findOne({_id: this.params._id}); }
+  });
+});
