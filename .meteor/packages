@@ -9,3 +9,5 @@ autopublish
 insecure
 http
 jquery
+useraccounts:core
+useraccounts:bootstrap
